@@ -1,0 +1,11 @@
+{
+  "name":"FilmLab — Film Photo Editor",
+  "short_name":"FilmLab",
+  "description":"Private, on-device film-inspired photo editor.",
+  "start_url":"./",
+  "display":"standalone",
+  "background_color":"#10110f",
+  "theme_color":"#10110f",
+  "orientation":"portrait-primary",
+  "icons":[{"src":"icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]
+}
