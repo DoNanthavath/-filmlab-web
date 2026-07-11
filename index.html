@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+  <meta name="theme-color" content="#10110f">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="FilmLab">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="icon.svg">
+  <link rel="stylesheet" href="styles.css">
+  <title>FilmLab — Film Photo Editor</title>
+</head>
+<body>
+  <header>
+    <div><strong>FilmLab</strong><span>FILM PHOTO EDITOR</span></div>
+    <button id="resetBtn" class="ghost" disabled>รีเซ็ต</button>
+  </header>
+
+  <main>
+    <section id="emptyState" class="empty">
+      <div class="aperture">◉</div>
+      <h1>แต่งภาพโทนฟิล์ม<br>บน iPhone</h1>
+      <p>ภาพจะถูกประมวลผลบนอุปกรณ์ของคุณ<br>และไม่ถูกอัปโหลดออกไป</p>
+      <label class="primary" for="photoInput">เลือกภาพจาก Photos</label>
+      <input id="photoInput" type="file" accept="image/*" hidden>
+    </section>
+
+    <section id="editor" class="editor" hidden>
+      <div class="preview-wrap" id="previewWrap">
+        <canvas id="preview"></canvas>
+        <div id="rendering" class="rendering" hidden>กำลังประมวลผล…</div>
+      </div>
+
+      <div class="toolbar">
+        <label class="tool" for="photoInput"><b>＋</b><span>ภาพใหม่</span></label>
+        <button id="compareBtn" class="tool"><b>◐</b><span>กดดูต้นฉบับ</span></button>
+        <button id="saveBtn" class="tool accent"><b>⇧</b><span>บันทึกภาพ</span></button>
+      </div>
+
+      <nav class="tabs">
+        <button class="active" data-tab="looks">ฟิล์ม</button>
+        <button data-tab="light">แสง</button>
+        <button data-tab="color">สี</button>
+        <button data-tab="effects">เอฟเฟกต์</button>
+      </nav>
+
+      <div id="looks" class="panel active">
+        <div id="presetList" class="presets"></div>
+        <div class="slider-row">
+          <label><span>ความแรงฟิลเตอร์</span><output id="intensityOut">75</output></label>
+          <input id="intensity" type="range" min="0" max="100" value="75">
+        </div>
+      </div>
+      <div id="light" class="panel"></div>
+      <div id="color" class="panel"></div>
+      <div id="effects" class="panel"></div>
+    </section>
+  </main>
+  <div id="toast" role="status"></div>
+  <script src="app.js"></script>
+</body>
+</html>
